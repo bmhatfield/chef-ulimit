@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## 0.1.2:
+
+* Add memory limit handling, courtesy of Sean Porter (https://github.com/bmhatfield/chef-ulimit/pull/3)
+
 ## 0.1.0:
 
 * Initial release of ulimit
