@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## 0.1.3:
+
+* Adds node attribute node['ulimit']['pam_su_template_cookbook'] to allow users to provide a su pam.d template from another cookbook
+
 ## 0.1.2:
 
 * Add memory limit handling, courtesy of Sean Porter (https://github.com/bmhatfield/chef-ulimit/pull/3)
