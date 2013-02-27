@@ -13,7 +13,7 @@ Add to your repo, then depend upon this cookbook from wherever you need to overr
 Attributes
 ==========
 
-None.
+* `node['ulimit']['pam_su_template_cookbook'] - Defaults to nil (current cookbook).  Determines what cookbook the su pam.d template is taken from
 
 Usage
 =====
