@@ -6,9 +6,10 @@
 # user_ulimit "tomcat" do
 #  filehandle_limit 8192
 #  process_limit 61504
+#  memory_limit 1024
 # end
 
-define :user_ulimit, :filehandle_limit => 4096, :process_limit => 61232, :memory_limit => nil do
+define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil do
   template "/etc/security/limits.d/#{params[:name]}_limits.conf" do
     source "ulimit.erb"
     cookbook "ulimit"

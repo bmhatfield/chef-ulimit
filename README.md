@@ -21,7 +21,8 @@ Usage
 Consume the user_ulimit resource like so:
 
     user_ulimit "tomcat" do
-      filehandle_limit 8192
-      process_limit 61504
+      filehandle_limit 8192 # optional
+      process_limit 61504 # optional
+      memory_limit 1024 # optional
     end
 
