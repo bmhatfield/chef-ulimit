@@ -20,7 +20,8 @@ define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_li
       :ulimit_user => params[:name],
       :filehandle_limit => params[:filehandle_limit],
       :process_limit => params[:process_limit],
-      :memory_limit => params[:memory_limit]
+      :memory_limit => params[:memory_limit],
+      :core_limit => params[:core_limit]
     )
   end
 end

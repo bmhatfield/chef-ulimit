@@ -24,5 +24,6 @@ Consume the user_ulimit resource like so:
       filehandle_limit 8192 # optional
       process_limit 61504 # optional
       memory_limit 1024 # optional
+      core_limit 2048 # optional
     end
 
