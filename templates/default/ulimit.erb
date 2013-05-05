@@ -12,3 +12,6 @@
 <%= @ulimit_user -%> - memlock <%= @memory_limit %>
 <% end -%>
 
+<% unless @core_limit.nil? -%>
+<%= @ulimit_user -%> - core <%= @core_limit %>
+<% end -%>
