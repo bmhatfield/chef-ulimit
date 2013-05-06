@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## 0.2.0
+
+* Support specifying users via attributes (as long as your runlist includes the ulimit::default recipe). Thanks to Dmytro Shteflyuk (https://github.com/kpumuk)
+
 ## 0.1.5
 
 * Allow setting core_limit. Thanks to Aaron Nichols (https://github.com/adnichols)
