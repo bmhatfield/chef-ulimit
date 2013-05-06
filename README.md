@@ -13,7 +13,8 @@ Add to your repo, then depend upon this cookbook from wherever you need to overr
 Attributes
 ==========
 
-* `node['ulimit']['pam_su_template_cookbook'] - Defaults to nil (current cookbook).  Determines what cookbook the su pam.d template is taken from
+* `node['ulimit']['pam_su_template_cookbook']` - Defaults to nil (current cookbook).  Determines what cookbook the su pam.d template is taken from
+* `node['ulimit']['users']` - Defaults to empty Hash.  List of users with their limits
 
 Usage
 =====
@@ -27,3 +28,18 @@ Consume the user_ulimit resource like so:
       core_limit 2048 # optional
     end
 
+You can also define limits using attributes on roles or nodes:
+
+    "default_attributes": {
+        "ulimit": {
+            "users": {
+                "tomcat": {
+                    "filehandle_limit": 8193,
+                    "process_limit": 61504
+                },
+                "hbase": {
+                    "filehandle_limit": 32768
+                }
+            }
+        }
+    }
