@@ -43,3 +43,21 @@ You can also define limits using attributes on roles or nodes:
             }
         }
     }
+
+Domain LWRP
+===========
+
+```ruby
+ulimit_domain 'my_user' do
+  rule do
+    item :nofile
+    type :hard
+    value 10000
+  end
+  rule do
+    item :nofile
+    type :soft
+    value 5000
+  end
+end
+```
