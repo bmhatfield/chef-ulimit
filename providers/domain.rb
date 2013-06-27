@@ -20,16 +20,25 @@ action :create do
     sub_resource.run_action(:create)
   end
 
-  template ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
+  utemplate = template ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
     source 'domain.erb'
     cookbook 'ulimit'
     variables :domain => new_resource.domain_name
   end
+
+  unless(self.respond_to?(:use_inline_resources))
+    new_resource.updated_by_last_action(ufile.updated_by_last_action?)
+  end
+  
 end
 
 action :delete do
   use_inline_resources if self.respond_to?(:use_inline_resources)
-  file ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
+  ufile = file ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
     action :delete
+  end
+
+  unless(self.respond_to?(:use_inline_resources))
+    new_resource.updated_by_last_action(ufile.updated_by_last_action?)
   end
 end
