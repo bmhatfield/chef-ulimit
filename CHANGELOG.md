@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## 0.3.0
+
+* Add Domain LWRP for arbitrary rule creation. Thanks for Chris Roberts (https://github.com/chrisroberts)
+
 ## 0.2.0
 
 * Support specifying users via attributes (as long as your runlist includes the ulimit::default recipe). Thanks to Dmytro Shteflyuk (https://github.com/kpumuk)
