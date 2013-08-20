@@ -27,7 +27,7 @@ action :create do
   end
 
   unless(self.respond_to?(:use_inline_resources))
-    new_resource.updated_by_last_action(ufile.updated_by_last_action?)
+    new_resource.updated_by_last_action(utemplate.updated_by_last_action?)
   end
   
 end
