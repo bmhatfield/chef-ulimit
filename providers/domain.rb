@@ -1,5 +1,7 @@
 def load_current_resource
   new_resource.filename new_resource.name unless new_resource.filename
+  new_resource.filename "#{new_resource.filename}.conf"
+
   new_resource.subresource_rules.map! do |name, block|
     urule = Chef::Resource::UlimitRule.new("ulimit_rule[#{new_resource.name}:#{name}]", nil)
     urule.domain new_resource
