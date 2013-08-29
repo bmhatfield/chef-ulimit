@@ -23,6 +23,8 @@ Consume the user_ulimit resource like so:
 ```ruby
 user_ulimit "tomcat" do
   filehandle_limit 8192 # optional
+  filehandle_soft_limit 8192 # optional; not used if filehandle_limit is set)
+  filehandle_hard_limit 8192 # optional; not used if filehandle_limit is set)
   process_limit 61504 # optional
   memory_limit 1024 # optional
   core_limit 2048 # optional
