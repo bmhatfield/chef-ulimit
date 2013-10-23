@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## 0.3.2
+
+* Resolves issue some users were having with a resource-loading race condition, thanks to Chris Roberts (https://github.com/chrisroberts)
+
 ## 0.3.1
 
 * Fix domain typo, thanks to David Radcliffe (https://github.com/dwradcliffe) (also reported by Lewis Thompson (https://github.com/lewisthompson))

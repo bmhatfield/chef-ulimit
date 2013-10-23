@@ -5,6 +5,17 @@ def initialize(*args)
   super
 end
 
+def load_current_resource
+  # do full type check
+  valid_types = [Chef::Resource::UlimitDomain, String]
+  unless(valid_types.include?(new_resource.domain.class))
+    raise TypeError.new(
+      "Expecting `domain` attribute to be of type: #{valid_types.map(&:to_s).join(', ')}. " <<
+      "Got: #{new_resource.domain.class}"
+    )
+  end
+end
+
 actions :create, :delete
 default_action :create
 
