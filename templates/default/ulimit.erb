@@ -8,6 +8,8 @@
 
 <% unless @process_limit.nil? -%>
 <%= @ulimit_user -%> - nproc <%= @process_limit %>
+<% else -%><% unless @process_soft_limit.nil? -%><%= @ulimit_user -%> soft noproc <%= @process_soft_limit %><% end -%>
+<% unless @process_hard_limit.nil? -%><%= @ulimit_user -%> hard noproc <%= @process_hard_limit %><% end -%>
 <% end -%>
 
 <% unless @memory_limit.nil? -%>
