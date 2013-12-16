@@ -17,7 +17,7 @@
 #
 ulimit = node['ulimit']
 
-case node[:platform]
+case node['platform']
   when "debian", "ubuntu"
     template "/etc/pam.d/su" do
       cookbook ulimit['pam_su_template_cookbook']
