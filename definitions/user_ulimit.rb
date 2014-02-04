@@ -9,7 +9,7 @@
 #  memory_limit 1024
 # end
 
-define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil do
+define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil do
   template "/etc/security/limits.d/#{params[:name]}_limits.conf" do
     source "ulimit.erb"
     cookbook "ulimit"
@@ -23,7 +23,9 @@ define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_li
       :filehandle_hard_limit => params[:filehandle_hard_limit],
       :process_limit => params[:process_limit],
       :memory_limit => params[:memory_limit],
-      :core_limit => params[:core_limit]
+      :core_limit => params[:core_limit],
+      :stack_soft_limit => params[:stack_soft_limit],
+      :stack_hard_limit => params[:stack_hard_limit]
     )
   end
 end

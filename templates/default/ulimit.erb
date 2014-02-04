@@ -17,3 +17,11 @@
 <% unless @core_limit.nil? -%>
 <%= @ulimit_user -%> - core <%= @core_limit %>
 <% end -%>
+
+<% unless @stack_soft_limit.nil? -%>
+<%= @ulimit_user -%> - soft stack <%= @stack_soft_limit %>
+<% end -%>
+
+<% unless @stack_hard_limit.nil? -%>
+<%= @ulimit_user -%> - hard stack <%= @stack_hard_limit %>
+<% end -%>
