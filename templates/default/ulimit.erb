@@ -8,6 +8,8 @@
 
 <% unless @process_limit.nil? -%>
 <%= @ulimit_user -%> - nproc <%= @process_limit %>
+<% else -%><% unless @process_soft_limit.nil? -%><%= @ulimit_user -%> soft nproc <%= @process_soft_limit %><% end -%>
+<% unless @process_hard_limit.nil? -%><%= @ulimit_user -%> hard nproc <%= @process_hard_limit %><% end -%>
 <% end -%>
 
 <% unless @memory_limit.nil? -%>
@@ -16,4 +18,12 @@
 
 <% unless @core_limit.nil? -%>
 <%= @ulimit_user -%> - core <%= @core_limit %>
+<% end -%>
+
+<% unless @stack_soft_limit.nil? -%>
+<%= @ulimit_user -%> soft stack <%= @stack_soft_limit %>
+<% end -%>
+
+<% unless @stack_hard_limit.nil? -%>
+<%= @ulimit_user -%> hard stack <%= @stack_hard_limit %>
 <% end -%>
