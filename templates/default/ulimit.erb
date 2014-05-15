@@ -20,10 +20,8 @@
 <%= @ulimit_user -%> - core <%= @core_limit %>
 <% end -%>
 
-<% unless @stack_soft_limit.nil? -%>
-<%= @ulimit_user -%> soft stack <%= @stack_soft_limit %>
-<% end -%>
-
-<% unless @stack_hard_limit.nil? -%>
-<%= @ulimit_user -%> hard stack <%= @stack_hard_limit %>
+<% unless @stack_limit.nil? -%>
+<%= @ulimit_user -%> - stack <%= @stack_limit %>
+<% else -%><% unless @stack_soft_limit.nil? -%><%= @ulimit_user -%> soft stack <%= @stack_soft_limit %><% end -%>
+<% unless @stack_hard_limit.nil? -%><%= @ulimit_user -%> hard stack <%= @stack_hard_limit %><% end -%>
 <% end -%>
