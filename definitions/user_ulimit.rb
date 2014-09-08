@@ -11,13 +11,9 @@
 
 define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil, :filename => nil do
 
-  if params[:filename].nil?
-    filename = "/etc/security/limits.d/#{params[:name]}_limits.conf"
-  else
-    filename = "/etc/security/limits.d/#{params[:filename]}.conf"
-  end
+  filename = params[:filename] || "#{params[:name]}_limits"
 
-  template filename do
+  template "/etc/security/limits.d/#{filename}.conf" do
     source "ulimit.erb"
     cookbook "ulimit"
     owner "root"
