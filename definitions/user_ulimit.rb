@@ -9,8 +9,15 @@
 #  memory_limit 1024
 # end
 
-define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil do
-  template "/etc/security/limits.d/#{params[:name]}_limits.conf" do
+define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil, :filename => nil do
+
+  if params[:filename].nil?
+    filename = "/etc/security/limits.d/#{params[:name]}_limits.conf"
+  else
+    filename = "/etc/security/limits.d/#{params[:filename]}.conf"
+  end
+
+  template filename do
     source "ulimit.erb"
     cookbook "ulimit"
     owner "root"
