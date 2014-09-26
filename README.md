@@ -30,6 +30,8 @@ user_ulimit "tomcat" do
   process_hard_limit 61504 # optional; not used if process_limit is set)
   memory_limit 1024 # optional
   core_limit 2048 # optional
+  core_soft_limit 1024 # optional
+  core_hard_limit 'unlimited' # optional
   stack_soft_limit 2048 # optional
   stack_hard_limit 2048 # optional
 end

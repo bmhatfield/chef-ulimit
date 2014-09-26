@@ -18,6 +18,8 @@
 
 <% unless @core_limit.nil? -%>
 <%= @ulimit_user -%> - core <%= @core_limit %>
+<% else -%><% unless @core_soft_limit.nil? -%><%= @ulimit_user -%> soft core <%= @core_soft_limit %><% end -%>
+<% unless @core_hard_limit.nil? -%><%= @ulimit_user -%> hard core <%= @core_hard_limit %><% end -%>
 <% end -%>
 
 <% unless @stack_soft_limit.nil? -%>
