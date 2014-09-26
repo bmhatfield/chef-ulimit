@@ -26,6 +26,8 @@ define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_li
       :process_hard_limit => params[:process_hard_limit],
       :memory_limit => params[:memory_limit],
       :core_limit => params[:core_limit],
+      :core_soft_limit => params[:core_soft_limit],
+      :core_hard_limit => params[:core_hard_limit],
       :stack_soft_limit => params[:stack_soft_limit],
       :stack_hard_limit => params[:stack_hard_limit]
     )
