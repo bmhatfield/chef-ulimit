@@ -5,16 +5,18 @@ This is a short-and-simple cookbook to provide a user_ulimit resource for overri
 
 It also provides a helper recipe (default.rb) for allowing ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
 
+Finally, it also supplies a more advanced `ulimit_domain` resource, allowing you to configure a complex set of rules beyond those supported by the definition.
+
 Requirements
 ============
 
-Add to your repo, then depend upon this cookbook from wherever you need to override ulimits.
+Add to your repo, then depend upon this cookbook from wherever you need to override ulimits. (If you're on Ubuntu, you'll also need to add `recipe[ulimit]` to your runlist, or the files created by this cookbook will be ignored.)
 
 Attributes
 ==========
 
 * `node['ulimit']['pam_su_template_cookbook']` - Defaults to nil (current cookbook).  Determines what cookbook the su pam.d template is taken from
-* `node['ulimit']['users']` - Defaults to empty Hash.  List of users with their limits
+* `node['ulimit']['users']` - Defaults to empty Mash.  List of users with their limits, as below.
 
 Usage
 =====
@@ -57,6 +59,8 @@ You can also define limits using attributes on roles or nodes:
 
 Domain LWRP
 ===========
+
+Note: The `ulimit_domain` resource creates files named after the domain with no modifiers by default. To override this behavior, specify the `filename` parameter to the resource.
 
 ```ruby
 ulimit_domain 'my_user' do
