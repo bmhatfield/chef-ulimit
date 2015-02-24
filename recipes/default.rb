@@ -24,10 +24,12 @@ case node['platform']
     end
 end
 
-ulimit['users'].each do |user, attributes|
-  user_ulimit user do
-    attributes.each do |a, v|
-      send(a.to_sym, v)
+if ulimit.has_key?('users')
+  ulimit['users'].each do |user, attributes|
+    user_ulimit user do
+      attributes.each do |a, v|
+        send(a.to_sym, v)
+      end
     end
   end
 end
