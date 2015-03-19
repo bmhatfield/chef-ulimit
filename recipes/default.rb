@@ -22,6 +22,10 @@ case node['platform']
     template "/etc/pam.d/su" do
       cookbook ulimit['pam_su_template_cookbook']
     end
+    cookbook_file "/etc/pam.d/sudo" do
+      source "sudo"
+      mode "0644"
+    end
 end
 
 if ulimit.has_key?('users')
