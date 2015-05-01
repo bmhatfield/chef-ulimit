@@ -1,9 +1,9 @@
 Description
 ===========
 
-This is a short-and-simple cookbook to provide a user_ulimit resource for overriding various ulimit settings. It places configured templates into /etc/security/limits.d/, named for the user the ulimit applies to.
+This is a short-and-simple cookbook to provide a `user_ulimit` resource for overriding various ulimit settings. It places configured templates into `/etc/security/limits.d/`, named for the user the ulimit applies to.
 
-It also provides a helper recipe (default.rb) for allowing ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
+It also provides a helper recipe (`default.rb`) for allowing ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
 
 Finally, it also supplies a more advanced `ulimit_domain` resource, allowing you to configure a complex set of rules beyond those supported by the definition.
 
@@ -21,7 +21,8 @@ Attributes
 Usage
 =====
 
-Consume the user_ulimit resource like so:
+Consume the `user_ulimit` resource like so:
+
 ```ruby
 user_ulimit "tomcat" do
   filehandle_limit 8192 # optional
