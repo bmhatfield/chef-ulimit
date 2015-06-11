@@ -58,6 +58,8 @@ You can also define limits using attributes on roles or nodes:
  }
  ```
 
+To specify a change for all users change specify a wildcard like so `user_ulimit "*"`
+
 Domain LWRP
 ===========
 
