@@ -9,7 +9,7 @@
 #  memory_limit 1024
 # end
 
-define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil, :filename => nil do
+define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil, :rtprio_limit => nil, :rtprio_soft_limit => nil, :rtprio_hard_limit => nil, :filename => nil do
 
   filename = params[:filename] || "#{params[:name]}_limits"
 
