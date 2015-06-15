@@ -33,7 +33,10 @@ define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_li
       :core_hard_limit => params[:core_hard_limit],
       :stack_limit => params[:stack_limit],
       :stack_soft_limit => params[:stack_soft_limit],
-      :stack_hard_limit => params[:stack_hard_limit]
+      :stack_hard_limit => params[:stack_hard_limit],
+      :rtprio_limit => params[:rtprio_limit],
+      :rtprio_soft_limit => params[:rtprio_soft_limit],
+      :rtprio_hard_limit => params[:rtprio_hard_limit]
     )
   end
 end
