@@ -1,12 +1,4 @@
 class Chef::Resource::UlimitRule < Chef::Resource
-  default_action :create
-
-  attribute :type, :kind_of => [Symbol,String], :required => true
-  attribute :item, :kind_of => [Symbol,String], :required => true
-  attribute :value, :kind_of => [String,Numeric], :required => true
-  attribute :domain, :kind_of => [Chef::Resource, String], :required => true
-
-
   def load_current_resource
     new_resource.domain new_resource.domain.domain_name if new_resource.domain.is_a?(Chef::Resource)
     node.run_state[:ulimit] ||= Mash.new
