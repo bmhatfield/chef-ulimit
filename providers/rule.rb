@@ -1,4 +1,4 @@
-class Chef::Resource::UlimitRule << Chef::Resource
+class Chef::Resource::UlimitRule < Chef::Resource
   def load_current_resource
     new_resource.domain new_resource.domain.domain_name if new_resource.domain.is_a?(Chef::Resource)
     node.run_state[:ulimit] ||= Mash.new

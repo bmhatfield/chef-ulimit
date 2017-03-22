@@ -1,6 +1,6 @@
 require_relative 'rule'
 
-class Chef::Resource::UlimitDomain << Chef::Resource
+class Chef::Resource::UlimitDomain < Chef::Resource
 def load_current_resource
   new_resource.filename new_resource.name unless new_resource.filename
   new_resource.filename "#{new_resource.filename}.conf"
