@@ -1,3 +1,5 @@
+require_relative 'rule'
+
 def load_current_resource
   new_resource.filename new_resource.name unless new_resource.filename
   new_resource.filename "#{new_resource.filename}.conf"
