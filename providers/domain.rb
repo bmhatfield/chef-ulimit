@@ -1,3 +1,6 @@
+require_relative 'rule'
+
+class Chef::Resource::UlimitDomain < Chef::Resource
 def load_current_resource
   new_resource.filename new_resource.name unless new_resource.filename
   new_resource.filename "#{new_resource.filename}.conf"
@@ -43,4 +46,5 @@ action :delete do
   unless(self.respond_to?(:use_inline_resources))
     new_resource.updated_by_last_action(ufile.updated_by_last_action?)
   end
+end
 end
