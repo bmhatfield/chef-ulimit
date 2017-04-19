@@ -1,5 +1,4 @@
-Description
-===========
+# ulimit Cookbook
 
 This is a short-and-simple cookbook to provide a `user_ulimit` resource for overriding various ulimit settings. It places configured templates into `/etc/security/limits.d/`, named for the user the ulimit applies to.
 
@@ -7,19 +6,16 @@ It also provides a helper recipe (`default.rb`) for allowing ulimit overrides wi
 
 Finally, it also supplies a more advanced `ulimit_domain` resource, allowing you to configure a complex set of rules beyond those supported by the definition.
 
-Requirements
-============
+# Requirements
 
 Add to your repo, then depend upon this cookbook from wherever you need to override ulimits. (If you're on Ubuntu, you'll also need to add `recipe[ulimit]` to your runlist, or the files created by this cookbook will be ignored.)
 
-Attributes
-==========
+# Attributes
 
-* `node['ulimit']['pam_su_template_cookbook']` - Defaults to nil (current cookbook).  Determines what cookbook the su pam.d template is taken from
-* `node['ulimit']['users']` - Defaults to empty Mash.  List of users with their limits, as below.
+- `node['ulimit']['pam_su_template_cookbook']` - Defaults to nil (current cookbook). Determines what cookbook the su pam.d template is taken from
+- `node['ulimit']['users']` - Defaults to empty Mash. List of users with their limits, as below.
 
-Usage
-=====
+# Usage
 
 Consume the `user_ulimit` resource like so:
 
@@ -56,12 +52,11 @@ You can also define limits using attributes on roles or nodes:
        }
     }
  }
- ```
+```
 
 To specify a change for all users change specify a wildcard like so `user_ulimit "*"`
 
-Domain LWRP
-===========
+# Domain LWRP
 
 Note: The `ulimit_domain` resource creates files named after the domain with no modifiers by default. To override this behavior, specify the `filename` parameter to the resource.
 
