@@ -1,11 +1,10 @@
 class Chef::Resource::UlimitRule < Chef::Resource
   default_action :create
 
-  property :type, :kind_of => [Symbol,String], :required => true
-  property :item, :kind_of => [Symbol,String], :required => true
-  property :value, :kind_of => [String,Numeric], :required => true
-  property :domain, :kind_of => [Chef::Resource, String], :required => true
-
+  property :type, kind_of: [Symbol, String], required: true
+  property :item, kind_of: [Symbol, String], required: true
+  property :value, kind_of: [String, Numeric], required: true
+  property :domain, kind_of: [Chef::Resource, String], required: true
 
   action :create do
     new_resource.domain new_resource.domain.domain_name if new_resource.domain.is_a?(Chef::Resource)
