@@ -9,7 +9,7 @@
 #  memory_limit 1024
 # end
 
-define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil, :filename => nil do
+define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_limit => nil, :stack_soft_limit => nil, :stack_hard_limit => nil, :rtprio_limit => nil, :rtprio_soft_limit => nil, :rtprio_hard_limit => nil, :filename => nil do
 
   filename = params[:filename]
   unless params[:filename]
@@ -41,7 +41,10 @@ define :user_ulimit, :filehandle_limit => nil, :process_limit => nil, :memory_li
       :core_hard_limit => params[:core_hard_limit],
       :stack_limit => params[:stack_limit],
       :stack_soft_limit => params[:stack_soft_limit],
-      :stack_hard_limit => params[:stack_hard_limit]
+      :stack_hard_limit => params[:stack_hard_limit],
+      :rtprio_limit => params[:rtprio_limit],
+      :rtprio_soft_limit => params[:rtprio_soft_limit],
+      :rtprio_hard_limit => params[:rtprio_hard_limit]
     )
   end
 end
