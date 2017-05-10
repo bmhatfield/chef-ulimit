@@ -19,6 +19,9 @@
 
 # Only define these if we've got ChefSpec
 if defined?(ChefSpec)
+  ChefSpec.define_matcher :ulimit_domain
+  ChefSpec.define_matcher :ulimit_rule
+
   def create_ulimit_domain(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:ulimit_domain, :create, resource_name)
   end
