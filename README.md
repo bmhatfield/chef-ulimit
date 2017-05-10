@@ -1,5 +1,7 @@
 # ulimit Cookbook
 
+[![Build Status](https://travis-ci.org/bmhatfield/chef-ulimit.svg?branch=master)](https://travis-ci.org/bmhatfield/chef-ulimit) [![Cookbook Version](https://img.shields.io/cookbook/v/ulimit.svg)](https://supermarket.chef.io/cookbooks/ulimit)
+
 This is a short-and-simple cookbook to provide a `user_ulimit` resource for overriding various ulimit settings. It places configured templates into `/etc/security/limits.d/`, named for the user the ulimit applies to.
 
 It also provides a helper recipe (`default.rb`) for allowing ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
