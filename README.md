@@ -2,11 +2,12 @@
 
 [![Build Status](https://travis-ci.org/bmhatfield/chef-ulimit.svg?branch=master)](https://travis-ci.org/bmhatfield/chef-ulimit) [![Cookbook Version](https://img.shields.io/cookbook/v/ulimit.svg)](https://supermarket.chef.io/cookbooks/ulimit)
 
-This is a short-and-simple cookbook to provide a `user_ulimit` resource for overriding various ulimit settings. It places configured templates into `/etc/security/limits.d/`, named for the user the ulimit applies to.
+This cookbook provides resources for managing ulimits configuration on nodes.
 
-It also provides a helper recipe (`default.rb`) for allowing ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
+- `user_ulimit` resource for overriding various ulimit settings. It places configured templates into `/etc/security/limits.d/`, named for the user the ulimit applies to.
+- `ulimit_domain` which allows for configuring complex sets of rules beyond those supported by the user_ulimit resource.
 
-Finally, it also supplies a more advanced `ulimit_domain` resource, allowing you to configure a complex set of rules beyond those supported by the definition.
+The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
 
 # Requirements
 
