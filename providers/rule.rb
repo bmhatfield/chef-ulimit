@@ -5,7 +5,7 @@ class Chef::Resource::UlimitRule < Chef::Resource
     node.run_state[:ulimit][new_resource.domain] ||= Mash.new
   end
 
-  action :create do
+  action :create do # ~FC017
     node.run_state[:ulimit][new_resource.domain][new_resource.item] ||= Mash.new
     node.run_state[:ulimit][new_resource.domain][new_resource.item][new_resource.type] = new_resource.value
   end
