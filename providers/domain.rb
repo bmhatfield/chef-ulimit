@@ -1,6 +1,8 @@
 require_relative 'rule'
 
 class Chef::Resource::UlimitDomain < Chef::Resource
+  use_inline_resources
+
   def load_current_resource
     new_resource.filename new_resource.name unless new_resource.filename
     new_resource.filename "#{new_resource.filename}.conf"
@@ -18,8 +20,6 @@ class Chef::Resource::UlimitDomain < Chef::Resource
   end
 
   action :create do
-    use_inline_resources
-
     new_resource.subresource_rules.map do |sub_resource|
       sub_resource.run_context = new_resource.run_context
       sub_resource.run_action(:create)
@@ -30,20 +30,11 @@ class Chef::Resource::UlimitDomain < Chef::Resource
       cookbook 'ulimit'
       variables domain: new_resource.domain_name
     end
-
-    unless respond_to?(:use_inline_resources)
-      new_resource.updated_by_last_action(utemplate.updated_by_last_action?)
-    end
   end
 
   action :delete do
-    use_inline_resources
     ufile = file ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
       action :delete
-    end
-
-    unless respond_to?(:use_inline_resources)
-      new_resource.updated_by_last_action(ufile.updated_by_last_action?)
     end
   end
 end
