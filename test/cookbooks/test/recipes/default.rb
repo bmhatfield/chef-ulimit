@@ -27,3 +27,17 @@ user_ulimit 'tomcat' do
   stack_soft_limit 2048
   stack_hard_limit 2048
 end
+
+user_ulimit 'system wide ulimit values' do
+  username '*'
+  filehandle_soft_limit 8192
+  filehandle_hard_limit 8192
+  process_soft_limit 61504
+  process_hard_limit 61504
+  memory_limit 1024
+  core_limit 2048
+  core_soft_limit 1024
+  core_hard_limit 'unlimited'
+  stack_soft_limit 2048
+  stack_hard_limit 2048
+end
