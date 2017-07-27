@@ -9,9 +9,19 @@ This cookbook provides resources for managing ulimits configuration on nodes.
 
 The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
 
-# Requirements
+## Requirements
 
-Add to your repo, then depend upon this cookbook from wherever you need to override ulimits. (If you're on Ubuntu, you'll also need to add `recipe[ulimit]` to your runlist, or the files created by this cookbook will be ignored.)
+### Platforms
+
+- Debian/Ubuntu
+
+### Chef
+
+- Chef 12.1+
+
+### Cookbooks
+
+- none
 
 # Attributes
 
