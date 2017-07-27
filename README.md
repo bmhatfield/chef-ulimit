@@ -13,7 +13,8 @@ The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides
 
 ### Platforms
 
-- Debian/Ubuntu
+- Debian/Ubuntu and derivatives
+- RHEL/Fedora and derivatives
 
 ### Chef
 
