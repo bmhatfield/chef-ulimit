@@ -17,20 +17,72 @@ The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides
 
 ### Chef
 
-- Chef 12.1+
+- Chef 12.7+
 
 ### Cookbooks
 
 - none
 
-# Attributes
+## Attributes
 
 - `node['ulimit']['pam_su_template_cookbook']` - Defaults to nil (current cookbook). Determines what cookbook the su pam.d template is taken from
 - `node['ulimit']['users']` - Defaults to empty Mash. List of users with their limits, as below.
 
-# Usage
+## Default Recipe
 
-Consume the `user_ulimit` resource like so:
+Instead of using the user_ulimit resource directly you may define user ulimits via node attribute. This can be done via environment file, role file, or in a wrapper cookbook. Note: The preferred way to use this cookbook is by directly defining resources as it is much easier to troubleshoot and far more robust.
+
+### Example role configuration:
+
+```ruby
+"default_attributes": {
+   "ulimit": {
+      "users": {
+         "tomcat": {
+            "filehandle_limit": 8193,
+               "process_limit": 61504
+             },
+            "hbase": {
+               "filehandle_limit": 32768
+             }
+       }
+    }
+ }
+```
+
+To specify a change for all users change specify a wildcard like so `user_ulimit "*"`
+
+## Resources
+
+### user_ulimit
+
+The `user_ulimit` resource creates individual ulimit files that are installed into the `/etc/security/limits.d/` directory.
+
+#### Actions:
+
+- `create`
+- `delete`
+
+#### Properties
+
+- `username` - Optional property to set the username if the resource name itself is not the username. See the example below.
+- `filename` - Optional filename to use instead of naming the file based on the username
+- `filehandle_limit` -
+- `filehandle_soft_limit` -
+- `filehandle_hard_limit` -
+- `process_limit` -
+- `process_soft_limit` -
+- `process_hard_limit` -
+- `memory_limit` -
+- `core_limit` -
+- `core_soft_limit` -
+- `core_hard_limit` -
+- `stack_soft_limit` -
+- `stack_hard_limit` -
+
+#### Examples
+
+Example of a resource where the username is the username:
 
 ```ruby
 user_ulimit "tomcat" do
@@ -49,29 +101,26 @@ user_ulimit "tomcat" do
 end
 ```
 
-You can also define limits using attributes on roles or nodes:
+Example where the resource name is not the username:
 
-```
-"default_attributes": {
-   "ulimit": {
-      "users": {
-         "tomcat": {
-            "filehandle_limit": 8193,
-               "process_limit": 61504
-             },
-            "hbase": {
-               "filehandle_limit": 32768
-             }
-       }
-    }
- }
+```ruby
+user_ulimit 'set filehandle ulimits for our tomcat user' do
+  username 'tomcat'
+  filehandle_soft_limit 8192
+  filehandle_hard_limit 8192
+end
 ```
 
-To specify a change for all users change specify a wildcard like so `user_ulimit "*"`
-
-# Domain LWRP
+### ulimit_domain
 
 Note: The `ulimit_domain` resource creates files named after the domain with no modifiers by default. To override this behavior, specify the `filename` parameter to the resource.
+
+#### Actions:
+
+- `create`
+- `delete`
+
+#### Examples:
 
 ```ruby
 ulimit_domain 'my_user' do

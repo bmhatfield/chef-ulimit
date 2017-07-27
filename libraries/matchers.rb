@@ -21,6 +21,15 @@
 if defined?(ChefSpec)
   ChefSpec.define_matcher :ulimit_domain
   ChefSpec.define_matcher :ulimit_rule
+  ChefSpec.define_matcher :ulimit_user
+
+  def create_ulimit_user(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:ulimit_user, :create, resource_name)
+  end
+
+  def delete_ulimit_user(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:ulimit_user, :delete, resource_name)
+  end
 
   def create_ulimit_domain(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:ulimit_domain, :create, resource_name)
