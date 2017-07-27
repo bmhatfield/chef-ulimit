@@ -1,4 +1,4 @@
-# Cookbook Name:: ulimit
+# Cookbook:: ulimit
 # Recipe:: default
 #
 # Copyright 2012, Brightcove, Inc

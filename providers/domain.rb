@@ -1,6 +1,6 @@
 require_relative 'rule'
 
-class Chef::Resource::UlimitDomain < Chef::Resource
+class Chef::Provider::UlimitDomain < Chef::Provider
   use_inline_resources
 
   def load_current_resource
@@ -25,7 +25,7 @@ class Chef::Resource::UlimitDomain < Chef::Resource
       sub_resource.run_action(:create)
     end
 
-    utemplate = template ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
+    template ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
       source 'domain.erb'
       cookbook 'ulimit'
       variables domain: new_resource.domain_name
@@ -33,7 +33,7 @@ class Chef::Resource::UlimitDomain < Chef::Resource
   end
 
   action :delete do
-    ufile = file ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
+    file ::File.join(node['ulimit']['security_limits_directory'], new_resource.filename) do
       action :delete
     end
   end
