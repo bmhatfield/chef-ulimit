@@ -6,8 +6,9 @@ description      'Resources for manaing ulimits'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.5.0'
 
-supports         'debian'
-supports         'ubuntu'
+%w(amazon centos redhat scientific oracle fedora debian ubuntu).each do |os|
+  supports os
+end
 
 source_url 'https://github.com/bmhatfield/chef-ulimit'
 issues_url 'https://github.com/bmhatfield/chef-ulimit/issues'
