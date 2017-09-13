@@ -37,7 +37,7 @@ action :create do
       stack_limit: new_resource.stack_limit,
       stack_soft_limit: new_resource.stack_soft_limit,
       stack_hard_limit: new_resource.stack_hard_limit,
-      rtprio_limit: new_resource.rtprio_limit,
+      rtprio_limit: new_resource.rtprio_limit
     )
   end
 end
