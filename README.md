@@ -7,7 +7,7 @@ This cookbook provides resources for managing ulimits configuration on nodes.
 - `user_ulimit` resource for overriding various ulimit settings. It places configured templates into `/etc/security/limits.d/`, named for the user the ulimit applies to.
 - `ulimit_domain` which allows for configuring complex sets of rules beyond those supported by the user_ulimit resource.
 
-The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides with the 'su' command on Ubuntu, which is disabled by default for some reason.
+The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides with the 'su' command on Ubuntu.
 
 ## Requirements
 
@@ -31,7 +31,7 @@ The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides
 
 ## Default Recipe
 
-Instead of using the user_ulimit resource directly you may define user ulimits via node attribute. This can be done via environment file, role file, or in a wrapper cookbook. Note: The preferred way to use this cookbook is by directly defining resources as it is much easier to troubleshoot and far more robust.
+Instead of using the user_ulimit resource directly you may define user ulimits via node attributes. The definition may be made via an environment file, a role file, or in a wrapper cookbook. Note: The preferred way to use this cookbook is by directly defining resources as it is much easier to troubleshoot and far more robust.
 
 ### Example role configuration:
 
@@ -51,7 +51,7 @@ Instead of using the user_ulimit resource directly you may define user ulimits v
  }
 ```
 
-To specify a change for all users change specify a wildcard like so `user_ulimit "*"`
+To specify a change for all users change specify a wildcard resource or user name like so `user_ulimit "*"`
 
 ## Resources
 
@@ -83,7 +83,7 @@ The `user_ulimit` resource creates individual ulimit files that are installed in
 
 #### Examples
 
-Example of a resource where the username is the username:
+Example of a resource where the resource name is the username:
 
 ```ruby
 user_ulimit "tomcat" do
