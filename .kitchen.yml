@@ -24,5 +24,3 @@ platforms:
 suites:
   - name: default
     run_list: test::default
-# could run the cookbooks default recipe, if nothing else to make sure it doesn't error out immediately
-# Need the inspec tests.  domain and user resources.
