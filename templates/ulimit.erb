@@ -27,8 +27,3 @@
 <% else -%><% unless @stack_soft_limit.nil? -%><%= @ulimit_user -%> soft stack <%= @stack_soft_limit %><% end -%>
 <% unless @stack_hard_limit.nil? -%><%= @ulimit_user -%> hard stack <%= @stack_hard_limit %><% end -%>
 <% end -%>
-
-
-# allowing arbitrary type, item, value combinations would be nice. The main things folks set are listed above, but the other items do get set sometimes. 
-
-# centos support?
