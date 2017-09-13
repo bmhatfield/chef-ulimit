@@ -80,6 +80,9 @@ The `user_ulimit` resource creates individual ulimit files that are installed in
 - `core_hard_limit` -
 - `stack_soft_limit` -
 - `stack_hard_limit` -
+- `rtprio_limit` -
+- `rtprio_soft_limit` -
+- `rtprio_hard_limit` -
 
 #### Examples
 
@@ -99,6 +102,9 @@ user_ulimit "tomcat" do
   core_hard_limit 'unlimited' # optional
   stack_soft_limit 2048 # optional
   stack_hard_limit 2048 # optional
+  rtprio_limit 60 # optional
+  rtprio_soft_limit 60 # optional
+  rtprio_hard_limit 60 # optional
 end
 ```
 
