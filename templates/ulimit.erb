@@ -30,4 +30,6 @@
 
 <% unless @rtprio_limit.nil? -%>
 <%= @ulimit_user -%> - rtprio <%= @rtprio_limit %>
+<% else -%><% unless @rtprio_soft_limit.nil? -%><%= @ulimit_user -%> soft rtprio <%= @rtprio_soft_limit %><% end -%>
+<% unless @rtprio_hard_limit.nil? -%><%= @ulimit_user -%> hard rtprio <%= @rtprio_hard_limit %><% end -%>
 <% end -%>

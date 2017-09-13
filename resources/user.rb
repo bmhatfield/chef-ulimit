@@ -16,6 +16,8 @@ property :stack_limit, [String, Integer]
 property :stack_soft_limit, [String, Integer]
 property :stack_hard_limit, [String, Integer]
 property :rtprio_limit, [String, Integer]
+property :rtprio_soft_limit, [String, Integer]
+property :rtprio_hard_limit, [String, Integer]
 
 action :create do
   template "/etc/security/limits.d/#{new_resource.filename}.conf" do
@@ -37,7 +39,9 @@ action :create do
       stack_limit: new_resource.stack_limit,
       stack_soft_limit: new_resource.stack_soft_limit,
       stack_hard_limit: new_resource.stack_hard_limit,
-      rtprio_limit: new_resource.rtprio_limit
+      rtprio_limit: new_resource.rtprio_limit,
+      rtprio_soft_limit: new_resource.rtprio_soft_limit,
+      rtprio_hard_limit: new_resource.rtprio_hard_limit
     )
   end
 end

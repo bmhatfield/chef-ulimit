@@ -26,7 +26,8 @@ user_ulimit 'tomcat' do
   core_hard_limit 'unlimited'
   stack_soft_limit 2048
   stack_hard_limit 2048
-  rtprio_limit 60
+  rtprio_soft_limit 60
+  rtprio_hard_limit 60
 end
 
 user_ulimit 'system wide ulimit values' do
@@ -41,4 +42,6 @@ user_ulimit 'system wide ulimit values' do
   core_hard_limit 'unlimited'
   stack_soft_limit 2048
   stack_hard_limit 2048
+  rtprio_soft_limit 60
+  rtprio_hard_limit 60
 end
