@@ -5,6 +5,8 @@ class Chef::Provider::UlimitRule < Chef::Provider
     node.run_state[:ulimit][new_resource.domain] ||= Mash.new
   end
 
+  use_inline_resources
+
   action :create do # ~FC017
     node.run_state[:ulimit][new_resource.domain][new_resource.item] ||= Mash.new
     node.run_state[:ulimit][new_resource.domain][new_resource.item][new_resource.type] = new_resource.value
