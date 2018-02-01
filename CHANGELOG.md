@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## 0.6.0
+
+- Rewrote as new style custom resource
+
 ## 0.5.0
 
 - Added a Test Kitchen config for basic testing
