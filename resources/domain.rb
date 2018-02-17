@@ -29,8 +29,6 @@ def rule(name = nil, &block)
   @subresource_rules << [name, block]
 end
 
-default_action :create
-
 action :create do
   seq = 0
   new_resource.subresource_rules.map do |sub_resource|

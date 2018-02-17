@@ -9,8 +9,6 @@ load_current_value do
   node.run_state[:ulimit][new_resource.domain] ||= Mash.new
 end
 
-default_action :create
-
 action :create do
   new_resource.domain new_resource.domain.domain_name if new_resource.domain.is_a?(Chef::Resource)
   node.run_state[:ulimit] ||= Mash.new
