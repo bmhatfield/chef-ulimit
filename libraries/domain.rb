@@ -35,7 +35,6 @@ class Chef
       end
 
       action :create do
-        seq = 0
         new_resource.subresource_rules.map do |sub_resource|
           sub_resource.run_context = new_resource.run_context
           sub_resource.run_action(:create)
