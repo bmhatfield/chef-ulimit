@@ -53,6 +53,7 @@ class Chef
       end
 
       action :delete do
+        new_resource.filename = "#{new_resource.filename}.conf" unless new_resource.filename.include?('.conf')
         file "/etc/security/limits.d/#{new_resource.filename}" do
           action :delete
         end
