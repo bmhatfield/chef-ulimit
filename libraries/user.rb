@@ -25,7 +25,8 @@ class Chef
       property :rtprio_hard_limit, [String, Integer]
 
       action :create do
-        template "/etc/security/limits.d/#{new_resource.filename}.conf" do
+        new_resource.filename = "#{new_resource.filename}.conf" unless new_resource.filename.include?('.conf')
+        template "/etc/security/limits.d/#{new_resource.filename}" do
           source 'ulimit.erb'
           cookbook 'ulimit'
           mode '0644'
@@ -52,7 +53,8 @@ class Chef
       end
 
       action :delete do
-        file "/etc/security/limits.d/#{new_resource.filename}.conf" do
+        new_resource.filename = "#{new_resource.filename}.conf" unless new_resource.filename.include?('.conf')
+        file "/etc/security/limits.d/#{new_resource.filename}" do
           action :delete
         end
       end
