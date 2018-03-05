@@ -34,7 +34,6 @@
 <% unless @rtprio_hard_limit.nil? -%><%= @ulimit_user -%> hard rtprio <%= @rtprio_hard_limit %><% end -%>
 <% end -%>
 
-# Added by Dave Trollope
 <% unless @virt_limit.nil? -%>
   <%= @ulimit_user -%> - as <%= @virt_limit %>
 <% end -%>
