@@ -20,7 +20,7 @@ property :rtprio_hard_limit, [String, Integer]
 property :virt_limit, [String, Integer]
 property :filename, String,
          coerce: proc { |m| m.end_with?('.conf') ? m : m + '.conf' },
-         default: lazy { |r| r.username == '*' ? '00_all_limits' : "#{r.username}_limits" }
+         default: lazy { |r| r.username == '*' ? '00_all_limits.conf' : "#{r.username}_limits.conf" }
 
 action :create do
   template "/etc/security/limits.d/#{new_resource.filename}" do
