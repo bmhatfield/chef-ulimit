@@ -45,7 +45,6 @@ a.out
 
 # Testing #
 ###########
-.watchr
 .rspec
 spec/*
 spec/fixtures/*
@@ -60,7 +59,7 @@ spec/*
 Rakefile
 .travis.yml
 .foodcritic
-.codeclimate.yml
+appveyor.yml
 
 # SCM #
 #######
@@ -92,16 +91,4 @@ Policyfile.lock.json
 CONTRIBUTING*
 CHANGELOG*
 TESTING*
-MAINTAINERS.toml
 
-# Strainer #
-############
-Colanderfile
-Strainerfile
-.colander
-.strainer
-
-# Vagrant #
-###########
-.vagrant
-Vagrantfile
