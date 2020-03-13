@@ -1,6 +1,7 @@
 # ulimit Cookbook
 
-[![Build Status](https://travis-ci.org/bmhatfield/chef-ulimit.svg?branch=master)](https://travis-ci.org/bmhatfield/chef-ulimit) [![Cookbook Version](https://img.shields.io/cookbook/v/ulimit.svg)](https://supermarket.chef.io/cookbooks/ulimit)
+![delivery](https://github.com/bmhatfield/chef-ulimit/workflows/delivery/badge.svg?branch=master)
+[![Cookbook Version](https://img.shields.io/cookbook/v/ulimit.svg)](https://supermarket.chef.io/cookbooks/ulimit)
 
 This cookbook provides resources for managing ulimits configuration on nodes.
 
