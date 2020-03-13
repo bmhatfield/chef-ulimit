@@ -75,6 +75,7 @@ The `user_ulimit` resource creates individual ulimit files that are installed in
 - `process_soft_limit` -
 - `process_hard_limit` -
 - `memory_limit` -
+- `virt_limit` -
 - `core_limit` -
 - `core_soft_limit` -
 - `core_hard_limit` -

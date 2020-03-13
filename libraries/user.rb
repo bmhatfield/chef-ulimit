@@ -23,6 +23,7 @@ class Chef
       property :rtprio_limit, [String, Integer]
       property :rtprio_soft_limit, [String, Integer]
       property :rtprio_hard_limit, [String, Integer]
+      property :virt_limit, [String, Integer]
 
       action :create do
         new_resource.filename = "#{new_resource.filename}.conf" unless new_resource.filename.include?('.conf')
@@ -47,7 +48,8 @@ class Chef
             stack_hard_limit: new_resource.stack_hard_limit,
             rtprio_limit: new_resource.rtprio_limit,
             rtprio_soft_limit: new_resource.rtprio_soft_limit,
-            rtprio_hard_limit: new_resource.rtprio_hard_limit
+            rtprio_hard_limit: new_resource.rtprio_hard_limit,
+            virt_limit: new_resource.virt_limit
           )
         end
       end
