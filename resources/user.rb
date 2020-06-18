@@ -1,7 +1,6 @@
 resource_name :user_ulimit
 
 property :username, String, name_property: true
-property :filename, String, default: lazy { |r| r.username == '*' ? '00_all_limits' : "#{r.username}_limits" }
 property :filehandle_limit, [String, Integer]
 property :filehandle_soft_limit, [String, Integer]
 property :filehandle_hard_limit, [String, Integer]
@@ -19,9 +18,11 @@ property :rtprio_limit, [String, Integer]
 property :rtprio_soft_limit, [String, Integer]
 property :rtprio_hard_limit, [String, Integer]
 property :virt_limit, [String, Integer]
+property :filename, String,
+         coerce: proc { |m| m.end_with?('.conf') ? m : m + '.conf' },
+         default: lazy { |r| r.username == '*' ? '00_all_limits.conf' : "#{r.username}_limits.conf" }
 
 action :create do
-  new_resource.filename = "#{new_resource.filename}.conf" unless new_resource.filename.include?('.conf')
   template "/etc/security/limits.d/#{new_resource.filename}" do
     source 'ulimit.erb'
     cookbook 'ulimit'
@@ -50,7 +51,6 @@ action :create do
 end
 
 action :delete do
-  new_resource.filename = "#{new_resource.filename}.conf" unless new_resource.filename.include?('.conf')
   file "/etc/security/limits.d/#{new_resource.filename}" do
     action :delete
   end
