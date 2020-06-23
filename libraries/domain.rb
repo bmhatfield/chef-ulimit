@@ -4,6 +4,7 @@ class Chef
   class Resource
     class UlimitDomain < Chef::Resource
       provides :ulimit_domain
+      resource_name :ulimit_domain
       property :domain, String
       property :domain_name, String, name_property: true
       property :filename, String
@@ -36,7 +37,6 @@ class Chef
       end
 
       action :create do
-        seq = 0
         new_resource.subresource_rules.map do |sub_resource|
           sub_resource.run_context = new_resource.run_context
           sub_resource.run_action(:create)
