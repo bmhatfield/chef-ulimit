@@ -17,7 +17,11 @@ class Chef
           urule = Chef::Resource::UlimitRule.new("#{new_resource.name}:#{name}]", nil)
           urule.domain new_resource
           urule.action :nothing
-          urule.instance_eval('anonymous', &block)
+          begin
+            urule.instance_eval(&block)
+          rescue
+            urule.instance_eval('"anonymous"', &block)
+          end
           unless name
             urule.name "ulimit_rule[#{new_resource.name}:#{urule.item}-#{urule.type}-#{urule.value}]"
           end
