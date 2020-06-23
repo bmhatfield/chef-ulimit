@@ -3,7 +3,7 @@ require 'chef/resource'
 class Chef
   class Resource
     class UlimitUser < Chef::Resource
-      resource_name :user_ulimit
+      provides :user_ulimit
 
       property :username, String, name_property: true
       property :filename, String, default: lazy { |r| r.username == '*' ? '00_all_limits' : "#{r.username}_limits" }

@@ -3,6 +3,7 @@ require 'chef/resource'
 class Chef
   class Resource
     class UlimitDomain < Chef::Resource
+      provides :ulimit_domain
       property :domain, String
       property :domain_name, String, name_property: true
       property :filename, String
