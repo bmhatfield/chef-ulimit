@@ -1,4 +1,5 @@
 resource_name :user_ulimit
+provides :user_ulimit
 
 property :username, String, name_property: true
 property :filehandle_limit, [String, Integer]
