@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## 1.1.1 (08-07-2020)
+
+- Resolve compatibility with Chef Infra Client 16+
+- Remove emptylines in the template that caused reconverges if updating the cookbook
+- Use coerce to add .conf to any passed filename
+
 ## 1.1.0 (03-13-2020)
 
 - Converted `user_ulimit` resource from a legacy HWRP to a custom resource
