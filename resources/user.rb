@@ -23,6 +23,8 @@ property :filename, String,
          coerce: proc { |m| m.end_with?('.conf') ? m : m + '.conf' },
          default: lazy { |r| r.username == '*' ? '00_all_limits.conf' : "#{r.username}_limits.conf" }
 
+unified_mode true
+
 action :create do
   template "/etc/security/limits.d/#{new_resource.filename}" do
     source 'ulimit.erb'

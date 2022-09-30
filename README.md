@@ -19,7 +19,7 @@ The cookbook also includes a recipe (`default.rb`) which allows ulimit overrides
 
 ### Chef
 
-- Chef 12.7+
+- Chef 15.3+
 
 ### Cookbooks
 

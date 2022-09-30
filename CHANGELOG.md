@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of ulimit.
 
+## Unreleased
+
+- Chef 17 updates: enable `unified_mode` on all resources
+- Bump required Chef Infra Client to >= 15.3
+
 ## 1.1.1 (08-07-2020)
 
 - Resolve compatibility with Chef Infra Client 16+
