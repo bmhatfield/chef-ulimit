@@ -11,4 +11,4 @@ end
 
 source_url 'https://github.com/bmhatfield/chef-ulimit'
 issues_url 'https://github.com/bmhatfield/chef-ulimit/issues'
-chef_version '>= 12.7'
+chef_version '>= 15.3'
